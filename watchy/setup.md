@@ -30,6 +30,12 @@ Rough instructions because the ones above are a little out of date.
    instructions are written for the older UI. But the 2.0 UI is more responsive.
 2. I got a compilation error when trying to do the build out of the box. In `~/Documents/Arduino/libraries/Watchy/src/Watchy.cpp`
    It seemed like an issue with the JSON parsing being ambigious whether it is a `char*` or a `String` type. 
+   ```
+   In member function 'weatherData Watchy::getWeatherData(String, String, String, String, String, uint8_t)':
+   error: ambiguous overload for 'operator=' (operand types are 'String' and 'JSONVar')
+             responseObject["weather"][0]["main"];
+                                                ^
+   ```
    I couldn't quite figure out how to fix this so I commented out that line. Later on, after I updated the libraries
    a few times, the problem went away, so I couldn't tell if I screwed up something or not.
    

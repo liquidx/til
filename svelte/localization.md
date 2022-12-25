@@ -73,6 +73,7 @@ export const load: LayoutLoad = async ({ params }) => {
 }
 ```
 
-After this, you should be able to use the regular svelte-i18n convenience method to use `$_(stringKey)` to get the localized name. If you need to get the current language, there probably is an API, but I just added a `{'lang': 'en}` to the locale file and read the language through that.
+After this, you should be able to use the regular svelte-i18n convenience method to use `$_(stringKey)` to get the localized name if you're in a svelte file. But if you're in typescript, the `$` notation doesn't work. You'll need to unwrap `_` and treat it like a svelte store. Which means using `_.get(...)`.
 
+To get the current locale, because we've extracted the `lang` out of `params`, it should be available for all the svelte components. You can programmatically get the current locale using `$locale` from `import { locale } from 'svelte-i18n`.
 
